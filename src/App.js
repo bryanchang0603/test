@@ -107,11 +107,16 @@ class App extends React.Component {
           "infoboxOption": { title: 'McMaster University', description: 'University' },
           "pushPinOption": { title: 'McMaster University', description: 'Pushpin' },
           "infoboxAddHandler": { "type": "click", callback: this.callBackMethod },
-          "pushPinAddHandler": { "type": "click", callback: this.callBackMethod }
+          "pushPinAddHandler": { "type": "click", callback: this.callBackMethod },
         }
       ],
     }
   }
+
+  testfunction() {
+    alert("clicked")
+  }
+
   render() {
     var headerStyle = {
       padding: '5px'

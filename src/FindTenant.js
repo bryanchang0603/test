@@ -1,37 +1,17 @@
 import React from 'react';
-import { HeaderWithRouter } from './navBar';
-import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import { ReactBingmaps } from 'react-bingmaps';
-import ButtonBase from '@material-ui/core/ButtonBase';
-import Rating from '@material-ui/lab/Rating';
-import ClearIcon from '@material-ui/icons/Clear';
+import ChatIcon from '@material-ui/icons/Chat';
+import ExitToAppRoundedIcon from '@material-ui/icons/ExitToAppRounded';
 import Emma from './I_EmmaAdson.jpg'
 import Susan from './I_SusanMiller.jpg'
 import John from './I_JohnEbron.jpg'
 import Williams from './I_WilliamsMiller.jpg'
 import Sophia from './I_SophiaLan.jpg'
 import Jeff from './I_JeffBullard.jpg'
-import { InputGroup, DropdownButton, Dropdown, FormControl, FormGroup, Button } from 'react-bootstrap';
-import { BrowserRouter as Router, Route, Switch, Redirect, useHistory } from 'react-router-dom';
-import SpecificAdPage from './SpecificAdPage';
+import { InputGroup, DropdownButton, Dropdown, FormControl, Button } from 'react-bootstrap';
+import { Route, Redirect } from 'react-router-dom';
 
-
-function UpdateSearch(sortMethod, filterMethod) {
-    const history = useHistory();
-
-    function handleClick() {
-        history.push("/FindTenant/hahah/Male");
-    }
-
-    return (
-        <Button variant="dark" onClick={handleClick}>
-            Go home
-        </Button>
-    );
-}
 
 class renderTennant extends React.Component {
     constructor(props) {
@@ -108,15 +88,15 @@ class renderTennant extends React.Component {
                 <Grid item container direction="row" justify="space-between" alignItems="flex-start">
                     <Grid item>
                         <Button >
-                            <ClearIcon fontSize="inherit"
-                                style={{ fontSize: "small" }} />
+                            <ExitToAppRoundedIcon fontSize="inherit"
+                                style={{ fontSize: "default" }} />
                         To Profile
                         </Button>
                     </Grid>
                     <Grid item>
                         <Button >
-                            <ClearIcon fontSize="inherit"
-                                style={{ fontSize: "small" }} />
+                            <ChatIcon fontSize="inherit"
+                                style={{ fontSize: "default" }} />
                         Take a Talk
                     </Button>
                     </Grid>
@@ -127,8 +107,8 @@ class renderTennant extends React.Component {
     }
 
     renderTennants() {
-        if (this.props.match.params.filterMethod == "Male") {
-            if (this.props.match.params.sortMethod == "Name") {
+        if (this.props.match.params.filterMethod === "Male") {
+            if (this.props.match.params.sortMethod === "Name") {
                 return (< Grid container xs={12} direction="column" justify="flex-start" alignItems="center" >
                     <Grid item xs={12} container direction="row" justify="space-evenly" alignItems="center">
                         <Grid item>
@@ -142,7 +122,7 @@ class renderTennant extends React.Component {
                         </Grid>
                     </Grid>
                 </Grid >)
-            } else if (this.props.match.params.sortMethod == "Price L-H") {
+            } else if (this.props.match.params.sortMethod === "Price L-H") {
                 return (< Grid container xs={12} direction="column" justify="flex-start" alignItems="center" >
                     <Grid item xs={12} container direction="row" justify="space-evenly" alignItems="center">
                         <Grid item>
@@ -157,7 +137,7 @@ class renderTennant extends React.Component {
                     </Grid>
                 </Grid >)
             }
-            else if (this.props.match.params.sortMethod == "Price H-L") {
+            else if (this.props.match.params.sortMethod === "Price H-L") {
                 return (< Grid container xs={12} direction="column" justify="flex-start" alignItems="center" >
                     <Grid item xs={12} container direction="row" justify="space-evenly" alignItems="center">
                         <Grid item>
@@ -188,8 +168,8 @@ class renderTennant extends React.Component {
                 </Grid >)
             }
         }
-        else if (this.props.match.params.filterMethod == "Female") {
-            if (this.props.match.params.sortMethod == "Name") {
+        else if (this.props.match.params.filterMethod === "Female") {
+            if (this.props.match.params.sortMethod === "Name") {
                 return (< Grid container xs={12} direction="column" justify="flex-start" alignItems="center" >
                     <Grid item xs={12} container direction="row" justify="space-evenly" alignItems="center">
                         <Grid item>
@@ -203,7 +183,7 @@ class renderTennant extends React.Component {
                         </Grid>
                     </Grid>
                 </Grid >)
-            } else if (this.props.match.params.sortMethod == "Price L-H") {
+            } else if (this.props.match.params.sortMethod === "Price L-H") {
                 return (< Grid container xs={12} direction="column" justify="flex-start" alignItems="center" >
                     <Grid item xs={12} container direction="row" justify="space-evenly" alignItems="center">
                         <Grid item>
@@ -218,7 +198,7 @@ class renderTennant extends React.Component {
                     </Grid>
                 </Grid >)
             }
-            else if (this.props.match.params.sortMethod == "Price H-L") {
+            else if (this.props.match.params.sortMethod === "Price H-L") {
                 return (< Grid container xs={12} direction="column" justify="flex-start" alignItems="center" >
                     <Grid item xs={12} container direction="row" justify="space-evenly" alignItems="center">
                         <Grid item>
@@ -323,7 +303,6 @@ class FindTenant extends React.Component {
                             variant="outline-secondary"
                             title={this.state.sortingOrder}
                             id="input-group-dropdown-2"
-                            startIcon={<ClearIcon />}
                         >
                             <Dropdown.Item href="#"
                                 onClick={() => { this.setState({ sortingOrder: "Name" }) }}
@@ -352,6 +331,7 @@ class FindTenant extends React.Component {
                         <Button variant="dark " href={'/FindTenant/' + this.state.sortingOrder + '/' + this.state.filterOrder}>Search</Button>
                     </InputGroup>
                     <div>
+                        <Route exact path='/FindTenant' component={renderTennant} />
                         <Route path='/FindTenant/:sortMethod/:filterMethod' component={renderTennant} />
                     </div>
 

@@ -8,6 +8,11 @@ import {
     Redirect
 } from 'react-router-dom';
 import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
+import image1 from './houseImage1.jpg';
+import image2 from './T_fourBedroom.jpg';
+import image3 from './T_Basement.jpg';
+import image4 from './T_Apartment.jpg';
+import image5 from './T_Bedroom.jpg';
 import Rating from '@material-ui/lab/Rating';
 
 class AppData extends React.Component {
@@ -147,11 +152,11 @@ class AppData extends React.Component {
             case "default":
                 return (
                     <div>
-                        {this.renderSingleItem(0)}<br />
-                        {this.renderSingleItem(1)}<br />
-                        {this.renderSingleItem(2)}<br />
-                        {this.renderSingleItem(3)}<br />
-                        {this.renderSingleItem(4)}<br />
+                        {this.renderSingleItem(0, image1)}<br />
+                        {this.renderSingleItem(1, image2)}<br />
+                        {this.renderSingleItem(2, image3)}<br />
+                        {this.renderSingleItem(3, image4)}<br />
+                        {this.renderSingleItem(4, image5)}<br />
                     </div>
                 )
 
@@ -163,21 +168,23 @@ class AppData extends React.Component {
                 )
         }
     }
-    renderSingleItem(requiredID) {
+    renderSingleItem(requiredID, image) {
         var requiredAd = this.state.housePost[requiredID]
         return (
-            < div id="postContainer">
-                <div id="postImage">
-                    {/* <img src={requiredAd.imageList[0]} /> */}
-                    <p> {requiredAd.imageList[0]} </p>
-                </div>
-                <div id="postPrice">${requiredAd.price}</div>
-                <div id="postRating">
-                    <Rating name="read-only" value={requiredAd.rating} readOnly />
-                </div>
-                <div id="postTitle">{requiredAd.postTitle}</div>
-                <div id="postContent">{requiredAd.shortDescription}</div>
-            </div >
+            <a href='/adPage'>
+                < div id="postContainer" >
+                    <div id="postImage">
+                        <img class = "image" alt="Test" src={image} />
+                        {/* <p> {requiredAd.imageList[0]} </p> */}
+                    </div>
+                    <div id="postPrice">${requiredAd.price}</div>
+                    <div id="postRating">
+                        <Rating name="read-only" value={requiredAd.rating} readOnly />
+                    </div>
+                    <div id="postTitle">{requiredAd.postTitle}</div>
+                    <div id="postContent">{requiredAd.shortDescription}</div>
+                </div >
+            </a>
         )
 
     }

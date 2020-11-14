@@ -1,11 +1,8 @@
 import React from 'react';
-import { HeaderWithRouter } from './navBar';
-import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
 import { ReactBingmaps } from 'react-bingmaps';
-import ButtonBase from '@material-ui/core/ButtonBase';
 import Rating from '@material-ui/lab/Rating';
 import IconButton from '@material-ui/core/IconButton';
 import ArrowBackIosRoundedIcon from '@material-ui/icons/ArrowBackIosRounded';
@@ -20,7 +17,7 @@ import houseImage2 from "./houseImage2.jpg"
 import houseImage3 from "./houseImage3.jpg"
 import utility from "./Utility.png"
 import { Launcher } from 'react-chat-window'
-import { InputGroup, DropdownButton, Dropdown, FormControl, FormGroup, Button } from 'react-bootstrap';
+import { DropdownButton, Dropdown } from 'react-bootstrap';
 import './SpecificAdPage.css';
 
 class specificAdPage extends React.Component {
@@ -220,7 +217,7 @@ class specificAdPage extends React.Component {
         else if (this.state.displayImage === 1 || this.state.displayImage === -2) {
             return <img className="imageHouse" alt="Test" src={houseImage2} />
         }
-        else{
+        else {
             return <img className="imageHouse" alt="Test" src={houseImage3} />
         }
     }
