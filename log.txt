@@ -1,0 +1,247 @@
+commit ee941801db20f8062ddd52a0ac112e2ec5838410
+Merge: afa5c02 8684af5
+Author: Baosheng Chang <changb9@mcmaster.ca>
+Date:   Sun Nov 15 12:47:51 2020 -0500
+
+    Merge pull request #10 from bryanchang0603/Morgan
+    
+    Morgan
+
+commit 8684af55c7d6c5997a5ed6551efe4f85a9355365
+Author: Bryan Chang <changb9@mcmaster.ca>
+Date:   Sun Nov 15 12:47:21 2020 -0500
+
+    Update FindTenant.js
+
+commit 3e1155377daba9ccca6c0d401898ee8c31245f86
+Merge: 9762c6f afa5c02
+Author: Bryan Chang <changb9@mcmaster.ca>
+Date:   Sun Nov 15 12:47:09 2020 -0500
+
+    Merge branch 'main' into Morgan
+
+commit afa5c022d5786dd7aeef661c38b5d558ef76b3bb
+Author: Bryan Chang <changb9@mcmaster.ca>
+Date:   Sun Nov 15 12:01:04 2020 -0500
+
+    Revert "Merge branch 'Boyu' into main"
+    
+    This reverts commit 51340099cfd1ea03be4fb4d02a1ac512df3adef8, reversing
+    changes made to f88702191cb644d0e3f9b7dff806804085f63b7e.
+
+commit 51340099cfd1ea03be4fb4d02a1ac512df3adef8
+Merge: f887021 2181050
+Author: Bryan Chang <changb9@mcmaster.ca>
+Date:   Sun Nov 15 11:57:22 2020 -0500
+
+    Merge branch 'Boyu' into main
+
+commit 2181050332afd35ec164aa3c84fa2a2fbbd18aa6
+Author: boyujiang <ijsaacjiang@gmail.com>
+Date:   Sun Nov 15 11:43:51 2020 -0500
+
+    styling update
+
+commit 4037e6cc8adf342c1bc8b66742ba3a66f1ef5fcd
+Author: boyujiang <ijsaacjiang@gmail.com>
+Date:   Sun Nov 15 02:27:11 2020 -0500
+
+    information and preference
+
+commit 9762c6ff5b2fb426d1264a782a2840a138550b77
+Author: Morgan <morgancui@outlook.com>
+Date:   Sun Nov 15 01:58:46 2020 -0500
+
+    Updated the sort/filt functions
+
+commit f88702191cb644d0e3f9b7dff806804085f63b7e
+Author: Bryan Chang <changb9@mcmaster.ca>
+Date:   Sun Nov 15 01:25:26 2020 -0500
+
+    fixing the bug
+    
+    Co-Authored-By: Morganc <41289218+morgancuims@users.noreply.github.com>
+
+commit 0a22bc832543fe48432ba2751e714af4ed99c5e3
+Author: Bryan Chang <changb9@mcmaster.ca>
+Date:   Sat Nov 14 23:26:23 2020 -0500
+
+    modifying the imge
+
+commit c3fe7a73e92ba48a1ad1937d4a538510b0597540
+Author: Bryan Chang <changb9@mcmaster.ca>
+Date:   Sat Nov 14 23:06:36 2020 -0500
+
+    add second chatbox to ad page
+
+commit 6c48ea11cdd93aa002f0ff9310dd0706529ce7c9
+Author: harry fu <fuhaoyuan1997@gmail.com>
+Date:   Sat Nov 14 22:41:16 2020 -0500
+
+    Harry
+
+commit 405c4b76472c2422c9c264bf924b261966c8e022
+Author: Bryan Chang <changb9@mcmaster.ca>
+Date:   Sat Nov 14 22:27:55 2020 -0500
+
+    update AppData
+
+commit 64e7c3734daa39048c7a9ba42f4165f78882d488
+Author: Bryan Chang <changb9@mcmaster.ca>
+Date:   Sat Nov 14 22:25:32 2020 -0500
+
+    push modified code
+
+commit f6fd74526497802fb3039950ee62ff0c22ec7cf5
+Author: harry fu <fuhaoyuan1997@gmail.com>
+Date:   Sat Nov 14 21:22:04 2020 -0500
+
+    Harry
+
+commit 2060407ae3763be25081119e7faf24d2c012df27
+Author: Bryan Chang <changb9@mcmaster.ca>
+Date:   Sat Nov 14 14:37:45 2020 -0500
+
+    minor fix
+
+commit fed222f43b0a14c89d5ad5e6769eae990ff915b5
+Author: Bryan Chang <changb9@mcmaster.ca>
+Date:   Sat Nov 14 12:46:29 2020 -0500
+
+    fixing small warning and minor UI fix
+
+commit 5b49a08abe48ea64cd7cf6325f8f1541ea3b7a2b
+Merge: 7e005e0 cd8c8ad
+Author: Baosheng Chang <changb9@mcmaster.ca>
+Date:   Sat Nov 14 12:34:17 2020 -0500
+
+    Merge pull request #4 from bryanchang0603/Bryan
+    
+    Bryan
+
+commit cd8c8adf0d72b9470d48364d5a6120598971c8d8
+Author: Bryan Chang <changb9@mcmaster.ca>
+Date:   Sat Nov 14 00:59:52 2020 -0500
+
+    git today's work, FindTenant Finished
+
+commit 8833f1ecc2ac7347844cbe36561b0f84c4b424fd
+Author: Morgan <morgancui@outlook.com>
+Date:   Fri Nov 13 18:34:14 2020 -0500
+
+    Updated to mutiple review posts
+
+commit 8a617a9d11d15bade0af7c7660d301bffd37d820
+Author: Bryan Chang <changb9@mcmaster.ca>
+Date:   Fri Nov 13 00:55:56 2020 -0500
+
+    started FindTenant
+
+commit 68caf95f24952df7d697244a55459d58c774d5d4
+Author: Morgan <morgancui@outlook.com>
+Date:   Thu Nov 12 20:43:53 2020 -0500
+
+    Forgot to update few files
+
+commit b7cef875f22202e884bbb3aad03ea1443f71fab6
+Author: Morgan <morgancui@outlook.com>
+Date:   Thu Nov 12 20:38:59 2020 -0500
+
+    Updated Single Reivew post
+
+commit 1f6b1259b9e22955518b29eabcd47f306e1e271a
+Author: Bryan Chang <changb9@mcmaster.ca>
+Date:   Thu Nov 12 18:34:59 2020 -0500
+
+    update today's work
+
+commit 24107d19fd78a3d9a6c901fe1a80cf92a646a570
+Author: Bryan Chang <changb9@mcmaster.ca>
+Date:   Thu Nov 12 03:26:12 2020 -0500
+
+    work update
+
+commit 4823c149b1298cee0eba2b17a0b403210e035ece
+Author: Bryan Chang <changb9@mcmaster.ca>
+Date:   Wed Nov 11 22:08:22 2020 -0500
+
+    adding table to main page
+
+commit 7e005e0b9fd6618ff22ee0dd8dac3b90cd91df88
+Merge: 3767395 71d07b1
+Author: Baosheng Chang <changb9@mcmaster.ca>
+Date:   Wed Nov 11 21:50:10 2020 -0500
+
+    Merge pull request #3 from bryanchang0603/Bryan
+    
+    Bryan
+
+commit 71d07b1dd6983e4cf3d05fbd6b6c38fee91a545d
+Author: Bryan Chang <changb9@mcmaster.ca>
+Date:   Wed Nov 11 21:49:55 2020 -0500
+
+    commit before merge
+
+commit 68c06649e5a05c41cbfcbcfd0ed6b3f5a452f5bf
+Merge: cb6dbd3 3767395
+Author: Bryan Chang <changb9@mcmaster.ca>
+Date:   Wed Nov 11 21:47:04 2020 -0500
+
+    merging Bryan to Main
+
+commit 6a38d68583b8d10353a32f995f7061a075d08257
+Author: Morganc <41289218+morgancuims@users.noreply.github.com>
+Date:   Wed Nov 11 21:39:17 2020 -0500
+
+    House Ratings Page
+
+commit 3767395de17d25808b6ee5dec4171ee8c600caef
+Merge: e7e716c 0d1ac3b
+Author: Baosheng Chang <changb9@mcmaster.ca>
+Date:   Wed Nov 11 21:06:54 2020 -0500
+
+    Merge pull request #2 from bryanchang0603/master
+    
+    main page - harry
+
+commit cb6dbd3b6b389837639be28a51edfd701c1aa985
+Author: Bryan Chang <changb9@mcmaster.ca>
+Date:   Wed Nov 11 21:04:08 2020 -0500
+
+    prepare for merge
+
+commit ca62f13d58ab4edded8d9f8786c0d63be2a16be6
+Author: Bryan Chang <changb9@mcmaster.ca>
+Date:   Wed Nov 11 21:00:43 2020 -0500
+
+    finished the table for main page
+
+commit 0d1ac3b74d871f81adedf3388590fa131ac2e6ec
+Author: harry fu <fuhaoyuan1997@gmail.com>
+Date:   Wed Nov 11 14:05:56 2020 -0500
+
+    main page - harry
+
+commit 1e60bd64abc2f42448c977c337df123fded293f9
+Author: Bryan Chang <changb9@mcmaster.ca>
+Date:   Wed Nov 11 13:13:42 2020 -0500
+
+    updating
+
+commit 3335b83de94ee73f345df45a5874d3293d82504c
+Author: Bryan Chang <changb9@mcmaster.ca>
+Date:   Tue Nov 10 14:57:22 2020 -0500
+
+    creating branch
+
+commit e7e716cbcefc383ea71e0957f3ae2c43a2618ec4
+Author: Bryan Chang <changb9@mcmaster.ca>
+Date:   Tue Nov 10 12:25:17 2020 -0500
+
+    create the react app
+
+commit b7a6d97ff9c60538c7b520601d38c860d16073f2
+Author: Baosheng Chang <changb9@mcmaster.ca>
+Date:   Sat Nov 7 14:47:16 2020 -0500
+
+    Initial commit
