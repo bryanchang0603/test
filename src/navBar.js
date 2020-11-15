@@ -14,9 +14,6 @@ export const NavBar = props =>{
                     <Nav.Link href='/home'>Home</Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                    <Nav.Link href='/adPage'>adTest</Nav.Link>
-                </Nav.Item>
-                <Nav.Item>
                     <Nav.Link href='/FindTenant'>Find Tennant</Nav.Link>
                 </Nav.Item>
             </Nav>

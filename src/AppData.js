@@ -1,28 +1,21 @@
 import React from 'react';
 import './AppData.css';
-import {
-    HashRouter as Router,
-    Route,
-    Link,
-    NavLink,
-    Redirect
-} from 'react-router-dom';
-import { Navbar, Nav, NavItem, NavDropdown, MenuItem } from 'react-bootstrap';
 import image1 from './houseImage1.jpg';
 import image2 from './T_fourBedroom.jpg';
 import image3 from './T_Basement.jpg';
 import image4 from './T_Apartment.jpg';
 import image5 from './T_Bedroom.jpg';
 import Rating from '@material-ui/lab/Rating';
+import { InputGroup, DropdownButton, Dropdown, FormControl, FormGroup, Button } from 'react-bootstrap';
 
 class AppData extends React.Component {
 
     constructor(props) {
         super(props);
-
-        // An array of social media posts messages, and we'll increment nextID
-        // to maintain a unique ID for each post in our array
         this.state = {
+                  numberOfRooms: "Number Of Rooms",
+                  type: "Type",
+                  priceRange: "Price Range",
             housePost: [
                 {
                     location: [43.2069, -79.9192],
@@ -43,7 +36,7 @@ class AppData extends React.Component {
                     electricy: true,
                     water: true,
                     Heat: true,
-                    WIFI: "included, 50Gb/s",
+                    WIFI: "included, 50Mb/s",
                     Parking: "2"
                 },
                 {
@@ -65,7 +58,7 @@ class AppData extends React.Component {
                     electricy: true,
                     water: true,
                     Heat: true,
-                    WIFI: "included, 50Gb/s",
+                    WIFI: "included, 50Mb/s",
                     Parking: "1"
                 },
                 {
@@ -87,7 +80,7 @@ class AppData extends React.Component {
                     electricy: true,
                     water: true,
                     Heat: true,
-                    WIFI: "included, 100Gb/s",
+                    WIFI: "included, 100Mb/s",
                     Parking: "0"
                 },
                 {
@@ -128,44 +121,39 @@ class AppData extends React.Component {
                     electricy: false,
                     water: false,
                     Heat: false,
-                    WIFI: "included, 50Gb/s",
+                    WIFI: "included, 1Gb/s",
                     Parking: "1"
                 }
             ],
             mainPageSorting: "default",
         };
     }
-
-    updateSortingMethod(sortingMethod) {
-        this.setState({
-            mainPageSorting: sortingMethod
-        })
-    }
-
     // locationGetter(requiredID) {
     //     var requiredAd = this.state.housePost.filter(x => x.postID === requiredID)
     //     return requiredAd.location
     // }
+    
 
     renderItemList() {
-        switch (this.props.mainPageSorting) {
+        switch (this.state.mainPageSorting) {
             case "default":
                 return (
                     <div>
                         {this.renderSingleItem(0, image1)}<br />
-                        {this.renderSingleItem(1, image2)}<br />
-                        {this.renderSingleItem(2, image3)}<br />
-                        {this.renderSingleItem(3, image4)}<br />
-                        {this.renderSingleItem(4, image5)}<br />
+                        {this.renderSingleItem_nolink(1, image2)}<br />
+                        {this.renderSingleItem_nolink(2, image3)}<br />
+                        {this.renderSingleItem_nolink(3, image4)}<br />
+                        {this.renderSingleItem_nolink(4, image5)}<br />
                     </div>
                 )
 
             case "threeBedroom":
                 return (
                     <div>
-                        {this.renderSingleItem(0)}<br />
+                        {this.renderSingleItem(0,image1)}<br />
                     </div>
                 )
+
         }
     }
     renderSingleItem(requiredID, image) {
@@ -174,7 +162,7 @@ class AppData extends React.Component {
             <a href='/adPage'>
                 < div id="postContainer" >
                     <div id="postImage">
-                        <img class = "image" alt="Test" src={image} />
+                        <img class="image" alt="Test" src={image} />
                         {/* <p> {requiredAd.imageList[0]} </p> */}
                     </div>
                     <div id="postPrice">${requiredAd.price}</div>
@@ -188,18 +176,95 @@ class AppData extends React.Component {
         )
 
     }
+    renderSingleItem_nolink(requiredID, image) {
+        var requiredAd = this.state.housePost[requiredID]
+        return (
+            
+                < div id="postContainer" >
+                    <div id="postImage">
+                        <img class="image" alt="Test" src={image} />
+                        {/* <p> {requiredAd.imageList[0]} </p> */}
+                    </div>
+                    <div id="postPrice">${requiredAd.price}</div>
+                    <div id="postRating">
+                        <Rating name="read-only" value={requiredAd.rating} readOnly />
+                    </div>
+                    <div id="postTitle">{requiredAd.postTitle}</div>
+                    <div id="postContent">{requiredAd.shortDescription}</div>
+                </div >
+        )
+
+    }
 
     getHousePost() {
         return this.state.housePost
     }
-
+   
+    filterItem(){
+        this.setState({
+            housePost: this.state.housePost.filter(h => h.postTitle === "3 bedroom house"),
+            mainPageSorting: "threeBedroom"
+        })
+        console.log(this.state.mainPageSorting);
+    }
     render() {
+        var searchStyle = {
+            position: 'relative',
+            left: '37%',
+            top:"80px",
+            width: '60%'
+          }
+        var tableStyle ={
+            position: 'relative',
+            right: '12%',
+            width: '50%',
+            bottom: '5px',
+            height: '70%'
+        }
         return (
             <div>
-                {this.renderItemList()}
+                 <div class='searchBar' style={searchStyle}>
+          <InputGroup size='lg'>
+            <FormControl
+              placeholder="Search nearby"
+              aria-label="Search nearby"
+              aria-describedby="basic-addon2"
+            />
+            <DropdownButton
+              as={InputGroup.Append}
+              variant="outline-secondary"
+              title={this.state.numberOfRooms}
+              id="input-group-dropdown-2"
+            >
+              <Dropdown.Item href="#" onClick={()=>{this.setState({ numberOfRooms:"3" })}}>3</Dropdown.Item>
+            </DropdownButton>
+
+            <DropdownButton
+              as={InputGroup.Append}
+              variant="outline-secondary"
+              title={this.state.type}
+              id="input-group-dropdown-2"
+            >
+              <Dropdown.Item href="#" onClick={()=>{this.setState({ type:"House" })}}>House</Dropdown.Item>
+            </DropdownButton>
+            <DropdownButton
+              as={InputGroup.Append}
+              variant="outline-secondary"
+              title={this.state.priceRange}
+              id="input-group-dropdown-2"
+            >
+              <Dropdown.Item href="#" onClick={()=>{this.setState({ priceRange:"500-1200" })}}>500-1200</Dropdown.Item>
+            </DropdownButton>
+
+            <Button variant="dark" onClick={this.filterItem.bind(this)}>Search</Button>
+          </InputGroup>
+
+        </div>
+            <div id="table" style={tableStyle}>
+            {this.renderItemList()}
+            </div>
             </div>
         )
     }
 }
-
 export default AppData

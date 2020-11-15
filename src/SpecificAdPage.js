@@ -18,7 +18,9 @@ import houseImage3 from "./houseImage3.jpg"
 import utility from "./Utility.png"
 import { Launcher } from 'react-chat-window'
 import { DropdownButton, Dropdown } from 'react-bootstrap';
+import { ChatBox } from 'react-chatbox-component';
 import './SpecificAdPage.css';
+import 'react-chatbox-component/dist/style.css';
 
 class specificAdPage extends React.Component {
     constructor(props) {
@@ -27,9 +29,11 @@ class specificAdPage extends React.Component {
         // An array of social media posts messages, and we'll increment nextID
         // to maintain a unique ID for each post in our array
         this.state = {
+            uid: "user",
             messageList: [],
-            latitude: 43.2069,
-            longitude: -79.9192,
+            messageList2: [],
+            latitude: 43.2600,
+            longitude: -79.9102,
             houseCategory: "Mcmaster University",
             postTitle: "3 bedroom house",
             shortDescription: "three bedroom, renovated last year",
@@ -233,6 +237,29 @@ class specificAdPage extends React.Component {
             }]
         })
     }
+    _onMessageWasSent2(message) {
+        this.setState({
+            messageList2: [...this.state.messageList2, {
+                "text": message,
+                "id": "1",
+                "sender": {
+                    "name": "user",
+                    "uid": "user",
+                    "avatar": "https://data.cometchat.com/assets/images/avatars/ironman.png",
+                },
+            },
+            {
+                "text": "Hi, As there is no server, this is the only reply",
+                "id": "1",
+                "sender": {
+                    "name": "System",
+                    "uid": "System",
+                    "avatar": "https://a.slack-edge.com/66f9/img/avatars-teams/ava_0001-34.png",
+                },
+            },
+        ]
+        })
+    }
 
     render() {
         return (
@@ -290,6 +317,17 @@ class specificAdPage extends React.Component {
                             </Grid>
                         </div>
                         {this.renderOverview()}
+                        <div className='container'>
+                            <div className='chat-header'>
+                                <h5>Chat Room For this Property</h5>
+                            </div>
+                            <ChatBox
+                                messages={this.state.messageList2}
+                                onSubmit={this._onMessageWasSent2.bind(this)}
+                                user={{
+                                    "uid": "user"
+                                }} />
+                        </div>
                     </Grid>
                     <Grid item xs={4} container direction="column" justify="flex-start" alignItems="stretch">
                         <Grid item>
@@ -297,20 +335,22 @@ class specificAdPage extends React.Component {
                                 <ReactBingmaps
                                     id="two"
                                     bingmapKey="ArVAogdJTqdKlO7mo9SXp1beyv6os158VaiIjB9iAag_qcaI6j1hiJct4aby0lIz"
-                                    center={[43.2609, -79.9192]}
+                                    center={[43.2600, -79.9102]}
                                     zoom={15}
                                     pushPins={[
                                         {
-                                            "location": [43.2609, -79.9192], "option": { color: 'red' },
+                                            "location": [43.2600, -79.9102], "option": { color: 'red' },
                                         }
                                     ]}
                                 >
                                 </ReactBingmaps>
                             </div>
                         </Grid>
-                        <div className="root_right">
-                            {this.renderReview()}
-                        </div>
+                        <Grid item>
+                            <div className="root_right">
+                                {this.renderReview()}
+                            </div>
+                        </Grid>
                     </Grid>
                 </Grid>
 
