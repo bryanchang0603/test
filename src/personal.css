@@ -52,6 +52,7 @@ body {
     border-collapse: collapse;
     table-layout: fixed;
     align-content: center;
+    padding-top: 20px ;
     padding-bottom:25px;
   }
   td{
@@ -60,4 +61,30 @@ body {
   .inputsize{
     position:relative;
     width:80%;
+  }
+  table.comment{
+    border-bottom: 1px solid black ;
+  }
+  .heart_red {
+    content: '&#9829';
+  }
+  .heart_red:before {
+    content: '\2665';
+    color: red;
+  }
+  .heart_grey {
+    content: '&#9829';
+  }
+  .heart_grey:before {
+    content: '\2665';
+    color: grey;
+  }
+  .left{
+    padding-left: 20px;
+  }
+  .top{
+    padding-top: 30px;
+  }
+  .bot{
+    padding-bottom: 30px;
   }

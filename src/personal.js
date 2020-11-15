@@ -9,7 +9,7 @@ import pen from './pen.png';
 import { InputGroup, DropdownButton, Dropdown, FormControl, FormGroup, Button } from 'react-bootstrap';
 import Rating from '@material-ui/lab/Rating';
 import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';  
+import Box from '@material-ui/core/Box';
 
 
 class information extends React.Component {
@@ -93,7 +93,6 @@ class information extends React.Component {
         var oneline = { display: 'inline-block' }
         return (
             <div>
-                <h1>  this is page1</h1>
                 <table>
                     <tbody>
                         <tr>
@@ -362,7 +361,6 @@ class preference extends React.Component {
         };
         return (
             <div>
-                <h1>This is the page223</h1>
                 <table>
                     <tbody>
                     <tr>
@@ -435,10 +433,21 @@ class preference extends React.Component {
 class comments extends React.Component {
     constructor(props) {
         super(props);
-        this.state = {display1:"inherit", display2:"none",comment:"view comment",
+        this.state = {
+            filter:"relationship",sort:"sort by review",display1:"inherit", display2:"none",comment:"write comment to others",
         reviews: [
-            {id:1,Name:"user1",Rating}
+            {id:1,Name:"user1",rating:2,date:"AUG,2,2018",relationship:"roommate",heart:"heart_grey",
+            text:"dasdad dasdugjh dqujojoi dhjasdgjyu djaskdjq mqeqkwmelq popopdasd drhufhjb."},
+            {id:2,Name:"user2",rating:3,date:"Jan,2,2018",relationship:"roommate", heart:"heart_grey",
+            text:"dasdad dasdugjh dqujojoi dhjasdgjyu djaskdjq mqeqkwmelq popopdasd drhufhjb."},
+            {id:3,Name:"user3",rating:5,date:"May,12,2019", relationship:"landlord",heart:"heart_grey",
+            text:"dasdad dasdugjh dqujojoi dhjasdgjyu djaskdjq mqeqkwmelq popopdasd drhufhjb."},
+            {id:4,Name:"user4",rating:4,date:"May,12,2019",relationship:"roommate",heart:"heart_grey",
+            text:"dasdad dasdugjh dqujojoi dhjasdgjyu djaskdjq mqeqkwmelq popopdasd drhufhjb."}
         ],
+        new_reviews:
+            {id:1,Name:"",relationship:"",
+            text:""},
     }
 
     }
@@ -446,27 +455,122 @@ class comments extends React.Component {
         var comment = this.state.comment;
         var display1 = this.state.display1;
         var display2 = this.state.display2;
-        if (comment === "view comment"){
-            comment="write comment";
+        if (comment === "write comment to others"){
+            comment="view comment";
             display1="none";
             display2="inherit";
 
         }else{
-            comment = "view comment";
+            comment = "write comment to others";
             display1="inherit";
             display2="none";
         }
-        this.setState({ comment: comment })
+        this.setState({ comment: comment, 
+            display1:display1, display2:display2})
     }
-    
+    changesort() {
+        var sort = this.state.sort;
+        if (sort === "sort by review"){
+            sort="unsort";
+        }
+        else{
+            sort = "sort by review";
+        }
+        this.setState({ sort: sort })
+    }
+    changefilter(text) {
+        this.setState({ filter: text })
+    }
+
+    setheart(id){
+        var reviews = this.state.reviews;
+        if (reviews[id-1].heart==="heart_grey"){
+            reviews[id-1].heart="heart_red";
+        }else{
+            reviews[id-1].heart="heart_grey";
+        }
+        this.setState({ reviews: reviews })
+    }
+    changerelationship(text){
+        var new_reviews = this.state.new_reviews;
+       new_reviews.relationship=text;
+
+        this.setState({ new_reviews: new_reviews })
+    }
+
     render(){
+        var object=this.state.reviews;
+        if (this.state.sort === "unsort"){
+            object.sort((a,b) =>a.rating - b.rating);
+        }else{
+            object.sort((a,b) =>a.id - b.id);
+        }
+
+        if (this.state.filter === "roommate"){
+            object=object.filter( ({id,Name,rating,date,relationship,heart,text}) => relationship == "roommate" );
+        }
+        else if(this.state.filter === "landlord"){
+            object=object.filter( ({id,Name,rating,date,relationship,heart,text}) => relationship == "landlord" );
+        }
+        else{
+            object=object.filter( ({id,Name,rating,date,relationship,heart,text}) => relationship != "relationship" );
+        }
+ 
         return(
             <div>
                 <button onClick={this.changeregion.bind(this)}>{this.state.comment}</button>
-                <Box component="fieldset" mb={3} borderColor="transparent">
-                <Typography component="legend">Disabled</Typography>
-                <Rating name="disabled" value={2} disabled />
-                </Box>
+                <div class="top" style={{display:this.state.display1}}>
+                <InputGroup size='lg'> 
+                <button onClick={this.changesort.bind(this)}>{this.state.sort}</button>
+                <span class="left">filter by relationship:</span>
+                <DropdownButton
+                        variant="outline-secondary"
+                        title={this.state.filter}>
+                        <Dropdown.Item as="button"><div onClick={(e) => this.changefilter(e.target.textContent)}>landlord</div></Dropdown.Item>
+                        <Dropdown.Item as="button"><div onClick={(e) => this.changefilter(e.target.textContent)}>roommate</div></Dropdown.Item>
+                        <Dropdown.Item as="button"><div onClick={(e) => this.changefilter(e.target.textContent)}>relationship</div></Dropdown.Item>  
+                         </DropdownButton>
+                </InputGroup>
+                {object.map(
+                    ({id,Name,rating,date,relationship,heart,text}) => 
+                <table key={id} class="comment">
+                    <tbody>
+                        <tr>
+                            <td> <p>Name: {Name}</p></td>
+                            <td> rating:<Rating name="disabled" value={rating} disabled /></td>
+                            <td><p>date: {date}</p></td>
+                        </tr>
+                        <tr>
+                            <td>relationship:{relationship}</td>
+                            <td>Review: <textarea id='comment' type="text" value={text}/></td>
+                            <td>Like:<span class={heart} onClick={this.setheart.bind(this, id)}></span></td>
+                        </tr>
+                    </tbody>
+                </table>)}
+                </div>
+                <div class="top" style={{display:this.state.display2}}> 
+                    <h1>Write review</h1>
+                <table class="comment">
+                    <tbody>
+                        <tr>
+                            <td> <p>Name: <input type="text"/></p></td>
+                            <td> rating:<Rating name="controlled" defaultValue={0}/></td>
+                            <td><p>relationship:<DropdownButton
+                            variant="outline-secondary"
+                            title={this.state.new_reviews.relationship}>
+                            <Dropdown.Item as="button"><div onClick={(e) => this.changerelationship(e.target.textContent)}>landlord</div></Dropdown.Item>
+                            <Dropdown.Item as="button"><div onClick={(e) => this.changerelationship(e.target.textContent)}>roommate</div></Dropdown.Item>  
+                            </DropdownButton></p></td>
+                        </tr>
+                        <tr>
+                            <td>Review:</td>
+                            <td> <textarea id='comment' type="text"/></td>
+                            <td> <button>Submit</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+
             </div>
         )
     }
