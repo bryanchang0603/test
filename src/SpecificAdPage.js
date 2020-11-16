@@ -91,12 +91,12 @@ class specificAdPage extends React.Component {
             <Grid item xs={12} sm container>
                 <Grid item xs container direction="column" spacing={2}>
                     <Grid item xs>
-                        <Typography gutterBottom variant="subtitle1">
+                        <p style = {{fontSize : "15px"}}>
                             {givenReview.User}
-                        </Typography>
-                        <Typography variant="body2" gutterBottom>
+                        </p>
+                        <p >
                             {givenReview.reviewDetail}
-                        </Typography>
+                        </p>
                     </Grid>
                 </Grid>
                 <Grid item>
@@ -113,9 +113,9 @@ class specificAdPage extends React.Component {
                 <Grid item xs={12} container direction="column" justify="flex-start" alignItems="stretch">
                     <Grid item container direction="row" justify="flex-start" alignItems="baseline">
                         <Grid item>
-                            <Typography gutterBottom variant="subtitle1">
+                            <p style = {{fontSize : "20px"}}>
                                 Review
-                            </Typography>
+                            </p>
                         </Grid>
                         <Grid item>
                             <DropdownButton id="dropdown-basic-button" title={this.state.reviewSorting}>
@@ -140,9 +140,9 @@ class specificAdPage extends React.Component {
         return (
             <div className="root_left">
                 <Paper className="paper">
-                    <Typography gutterBottom variant="subtitle1">
+                    <p className = "subTitle">
                         Overview
-                    </Typography>
+                    </p>
                     <Grid container justify="space-around" alignItems="flex-start" direction="row">
                         <Grid item xs container justify="flex-start" alignItems="center" direction="column">
                             <Grid item xs container direction="row" justify="flex-start" alignItems="flex-start">
@@ -278,12 +278,12 @@ class specificAdPage extends React.Component {
                                     <Grid item xs={12} sm container>
                                         <Grid item xs container direction="column" spacing={2}>
                                             <Grid item xs>
-                                                <Typography gutterBottom variant="subtitle1">
+                                                <p className = "subTitle">
                                                     {this.state.postTitle}
-                                                </Typography>
-                                                <Typography variant="body2" gutterBottom>
+                                                </p>
+                                                <p style = {{fontSize: "15px"}}>
                                                     {this.state.shortDescription}
-                                                </Typography>
+                                                </p>
                                             </Grid>
                                         </Grid>
                                         <Grid item>

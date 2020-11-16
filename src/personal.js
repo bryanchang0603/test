@@ -96,28 +96,27 @@ class information extends React.Component {
                 <table>
                     <tbody>
                         <tr>
-                            <td>Name:</td>
-                            <td><input type="text" onChange={(event) => this.setState({ Name: event.target.value })}
+                            <td className="personal">Name:</td>
+                            <td className="personal"><input type="text" onChange={(event) => this.setState({ Name: event.target.value })}
                                 value={this.state.Name} disabled={this.state.line1}/></td>
-                            <td><img src={pen} style={logoStyle} onClick={this.enable_disable1.bind(this)}/></td>
+                            <td className="personal"><img src={pen} style={logoStyle} onClick={this.enable_disable1.bind(this)}/></td>
                         </tr>
                         <tr>
-                            <td>Phone:</td>
-                            <td><input type="text" onChange={(event) => this.setState({ Phone: event.target.value })}
+                            <td className="personal">Phone:</td>
+                            <td className="personal"><input type="text" onChange={(event) => this.setState({ Phone: event.target.value })}
                                 value={this.state.Phone} disabled={this.state.line2}/></td>
-                            <td><img src={pen} style={logoStyle} onClick={this.enable_disable2.bind(this)}/></td>
+                            <td className="personal"><img src={pen} style={logoStyle} onClick={this.enable_disable2.bind(this)}/></td>
                         </tr>
                         <tr>
-                            <td>Email:</td>
-                            <td><input type="text" onChange={(event) => this.setState({ Email: event.target.value })}
+                            <td className="personal">Email:</td>
+                            <td className="personal"><input type="text" onChange={(event) => this.setState({ Email: event.target.value })}
                                 value={this.state.Email} disabled={this.state.line3}/></td>
-                            <td><img src={pen} style={logoStyle} onClick={this.enable_disable3.bind(this)}/></td>
+                            <td className="personal"><img src={pen} style={logoStyle} onClick={this.enable_disable3.bind(this)}/></td>
                         </tr>
                         <tr>
-                            <td>Province/City:</td>
-                            <td>
+                            <td className="personal">Province/City:</td>
+                            <td className="personal"> 
                                 <div> 
-                                    <InputGroup size='lg'>
                                         <DropdownButton
                                             disabled={this.state.line4}
                                             variant="outline-secondary"
@@ -131,13 +130,12 @@ class information extends React.Component {
                                         </DropdownButton>
                                         <input type="text" onChange={(event) => this.setState({ City: event.target.value })}
                                             value={this.state.City} disabled={this.state.line4}/>
-                                    </InputGroup>
                                 </div></td>
-                            <td><img src={pen} style={logoStyle} onClick={this.enable_disable4.bind(this)}/></td>
+                            <td className="personal"><img src={pen} style={logoStyle} onClick={this.enable_disable4.bind(this)}/></td>
                         </tr>
                         <tr>
-                            <td>language:</td>
-                            <td>
+                            <td className="personal">language:</td>
+                            <td className="personal">
                                 <DropdownButton
                                 disabled={this.state.line5}
                                     variant="outline-secondary"
@@ -145,15 +143,15 @@ class information extends React.Component {
                                     <Dropdown.Item as="button"><div onClick={(e) => this.changelanguage(e.target.textContent)}>English </div></Dropdown.Item>
                                     <Dropdown.Item as="button"><div onClick={(e) => this.changelanguage(e.target.textContent)}>French </div></Dropdown.Item>
                                 </DropdownButton></td>
-                            <td><img src={pen} style={logoStyle} onClick={this.enable_disable5.bind(this)}/></td>
+                            <td className="personal"><img src={pen} style={logoStyle} onClick={this.enable_disable5.bind(this)}/></td>
                         </tr>
                         <tr>
-                            <td>About Me:</td>
-                            <td>
+                            <td className="personal">About Me:</td>
+                            <td className="personal">
                                 <textarea type="text" onChange={(event) => this.setState({ description: event.target.value })}
                                     value={this.state.description} disabled={this.state.line6}/>
                             </td>
-                            <td><img src={pen} style={logoStyle} onClick={this.enable_disable6.bind(this)}/></td>
+                            <td className="personal"><img src={pen} style={logoStyle} onClick={this.enable_disable6.bind(this)}/></td>
                         </tr>
                     </tbody>
                 </table>
@@ -412,6 +410,7 @@ class preference extends React.Component {
                     
                      </tbody>
                 </table>
+                <p>Double Click on buttons to make changes on preferred area</p>
                 <p>
                 <button onClick={this.Change_Center_Up.bind(this)} style={{visibility:this.state.visible1}}>Latitude up</button>
                 <button onClick={this.Change_Center_down.bind(this)} style={{visibility:this.state.visible2}}>Latitude down</button>
@@ -520,8 +519,9 @@ class comments extends React.Component {
             <div>
                 <button onClick={this.changeregion.bind(this)}>{this.state.comment}</button>
                 <div class="top" style={{display:this.state.display1}}>
-                <InputGroup size='lg'> 
                 <button onClick={this.changesort.bind(this)}>{this.state.sort}</button>
+                <InputGroup size='lg'> 
+                
                 <span class="left">filter by relationship:</span>
                 <DropdownButton
                         variant="outline-secondary"

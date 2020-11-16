@@ -24,7 +24,6 @@
       work correctly both with client-side routing and a non-root public URL.
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
-    <title>React App</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
@@ -46,7 +45,7 @@
 
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Bootstrap Table with Add and Delete Row Feature</title>
+<title>Rate the House</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round|Open+Sans">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -58,20 +57,73 @@
 <link href="http://netdna.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <link href="path/to/css/star-rating.min.css" media="all" rel="stylesheet" type="text/css" />
 
+
+<!-- <div class="thumb">
+  <div class="like grow">
+    <i class="fa fa-thumbs-up fa-3x like" aria-hidden="true"></i>
+  </div>
+
+  <div class="dislike grow">
+    <i class="fa fa-thumbs-down fa-3x like" aria-hidden="true"></i>
+  </div>
+</div> -->
+
+
+
+
 <script>
+
     $(document).ready(function(){
+      $('.like1, .dislike1').click(function() {
+        event.preventDefault();
+        $('.active1').removeClass('active1');
+        $(this).addClass('active1');
+      });
+
+      $('.like2, .dislike2').click(function() {
+        event.preventDefault();
+        $('.active2').removeClass('active2');
+        $(this).addClass('active2');
+      });
+
+
+
+      $('.like3, .dislike3').click(function() {
+          event.preventDefault();
+          $('.active3').removeClass('active3');
+          $(this).addClass('active3');
+      });
+
+      $('.like4, .dislike4').click(function() {
+          event.preventDefault();
+          $('.active4').removeClass('active4');
+          $(this).addClass('active4');
+      });
+
+      $('.like5, .dislike5').click(function() {
+          event.preventDefault();
+          $('.active5').removeClass('active5');
+          $(this).addClass('active5');
+      });
+
+      $('.like6, .dislike6').click(function() {
+          event.preventDefault();
+          $('.active6').removeClass('active6');
+          $(this).addClass('active6');
+      });
+
+     
  //table1
-      // $('[data-toggle="tooltip"]').tooltip();
         var actions = $("table1 table td:last-child").html();
         // Append table with add row form on add new button click
         $(".add-new1").click(function(){
-            // $(this).attr("disabled", "disabled");
             var index = $("table1 table tbody tr:last-child").index();
             var row = '<tr>' +
                   '<td><input type="text" class="form-control" name="date" id="date"></td>' +
                   '<td><input type="text" class="form-control" name="name" id="name"></td>' +
                   '<td><input type="text" class="form-control" name="review" id="review"></td>' +
                   '<td>' + actions + '</td>' +
+
                 '</tr>';
             $("table1 table").append(row);		
             $("table1 tbody tr").eq(index + 1).find(".add, .edit").toggle();
@@ -79,9 +131,7 @@
 
 //table2
         var actions = $("table2 table td:last-child").html();
-        // Append table with add row form on add new button click
         $(".add-new2").click(function(){
-            // $(this).attr("disabled", "disabled");
             var index = $("table2 table tbody tr:last-child").index();
             var row = '<tr>' +
                   '<td><input type="text" class="form-control" name="date" id="date"></td>' +
@@ -95,9 +145,7 @@
 
 //table3
         var actions = $("table3 table td:last-child").html();
-        // Append table with add row form on add new button click
         $(".add-new3").click(function(){
-            // $(this).attr("disabled", "disabled");
             var index = $("table3 table tbody tr:last-child").index();
             var row = '<tr>' +
                   '<td><input type="text" class="form-control" name="date" id="date"></td>' +
@@ -111,9 +159,7 @@
 
 //table4
         var actions = $("table4 table td:last-child").html();
-        // Append table with add row form on add new button click
         $(".add-new4").click(function(){
-            // $(this).attr("disabled", "disabled");
             var index = $("table4 table tbody tr:last-child").index();
             var row = '<tr>' +
                   '<td><input type="text" class="form-control" name="date" id="date"></td>' +
@@ -128,9 +174,7 @@
 
 //table5
         var actions = $("table5 table td:last-child").html();
-        // Append table with add row form on add new button click
         $(".add-new5").click(function(){
-            // $(this).attr("disabled", "disabled");
             var index = $("table5 table tbody tr:last-child").index();
             var row = '<tr>' +
                   '<td><input type="text" class="form-control" name="date" id="date"></td>' +
@@ -145,9 +189,7 @@
 
 //table6
         var actions = $("table6 table td:last-child").html();
-        // Append table with add row form on add new button click
         $(".add-new6").click(function(){
-            // $(this).attr("disabled", "disabled");
             var index = $("table6 table tbody tr:last-child").index();
             var row = '<tr>' +
                   '<td><input type="text" class="form-control" name="date" id="date"></td>' +
@@ -210,8 +252,103 @@
             $(".add-new5").removeAttr("disabled");
             $(".add-new6").removeAttr("disabled");
         });
-
-
     });
     
+
+
     </script>
+
+
+<style>
+
+  .active,  .active1, .active2, .active3, .active4, .active5, .active6{
+    color: #2EBDD1;
+  }
+  
+  body {
+      color: #404E67;
+      background: #F5F7FA;
+  font-family: 'Open Sans', sans-serif;
+}
+.table-wrapper {
+  width: 700px;
+  margin: 30px auto;
+      background: #fff;
+      padding: 20px;	
+      box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  }
+  .table-title {
+      padding-bottom: 10px;
+      margin: 0 0 10px;
+  }
+  .table-title h2 {
+      margin: 6px 0 0;
+      font-size: 22px;
+  }
+  .table-title .add-new {
+      float: right;
+  height: 30px;
+  font-weight: bold;
+  font-size: 12px;
+  text-shadow: none;
+  min-width: 100px;
+  border-radius: 50px;
+  line-height: 13px;
+  }
+.table-title .add-new i {
+  margin-right: 4px;
+}
+tr:nth-child(odd){background-color: lightgrey;}
+tr:nth-child(even){background-color: MistyRose;}
+
+  table.table {
+      table-layout: fixed;
+  }
+  table.table tr th, table.table tr td {
+      border-color: #e9e9e9;
+  }
+  table.table th i {
+      font-size: 13px;
+      margin: 0 5px;
+      cursor: pointer;
+  }
+  table.table th:last-child {
+      width: 100px;
+  }
+  table.table td a {
+  cursor: pointer;
+      display: inline-block;
+      margin: 0 5px;
+  min-width: 24px;
+  }    
+table.table td a.add {
+      color: #27C46B;
+  }
+  table.table td a.edit {
+      color: #FFC107;
+  }
+  table.table td a.delete {
+      color: #E34724;
+  }
+  table.table td i {
+      font-size: 19px;
+  }
+  table.table td a.add i {
+      font-size: 24px;
+    margin-right: -1px;
+      position: relative;
+      top: 3px;
+  }    
+  table.table .form-control {
+      height: 32px;
+      line-height: 32px;
+      box-shadow: none;
+      border-radius: 2px;
+  }
+table.table .form-control.error {
+  border-color: #f50000;
+}
+table.table td .add {
+  display: none;
+}
+</style>

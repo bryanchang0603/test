@@ -371,15 +371,15 @@ class FindTenant extends React.Component {
     render() {
         return (
             <div>
-                <div class='searchBar' >
+                <div style={{ background: "#FFFFFF" }} >
                     <InputGroup size='lg'>
                         <FormControl
                             placeholder="Search Tennant"
                             aria-label="Search Tennant"
                             aria-describedby="basic-addon2"
                         />
-                        <tr>
-                            <td>
+                        <tr style={{ color: "#FFFFFF" }}>
+                            <td style={{ color: "#FFFFFF" }}>
                                 <DropdownButton
                                     as={InputGroup.Append}
                                     variant="outline-secondary"
@@ -398,7 +398,7 @@ class FindTenant extends React.Component {
                                 </DropdownButton>
                             </td>
 
-                            <td>
+                            <td style={{ color: "#FFFFFF" }}>
                                 <DropdownButton
                                     as={InputGroup.Append}
                                     variant="outline-secondary"
